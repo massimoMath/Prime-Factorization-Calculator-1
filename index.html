@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Prime Factorization Calculator </title>
+  <meta charset="utf-8"/>
+  <meta name="description" content="A calculator that computes Prime Factorization of a positive integer"/>
+  <meta name="author" content="Thomas Giudici"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+  <main>
+    <h1> Prime Factor Decomposition </h1>
+    <input type="number" min="0" placeholder="positive integer">
+    <button onclick="ValidateInput()"> Submit </button>
+    <h2></h2>
+    <p id="result"></p>
+    <a id="info"> Open console for further details <i> (f12) </i> </a>
+    <a id="link1" onclick="main.style.display='none';section.style.display='block';link2.style.display='inline';document.getElementById('clear').style.display='inline';ShowStorage()"> Browse your history &#8594; </a>
+  </main>
+
+  <section style="display:none">
+    <h1 style="animation-duration:1.5s;animation-name:transition_h1"> Your History </h1>
+    <h3></h3>
+    <a id="link2" onclick="main.style.display='block';section.style.display='none'"> Go back to calculator &#x21A9; </a>
+    <a id="clear" onclick="localStorage.clear();alert('LOCAL STORAGE IS CLEARED');link2.click();ShowStorage()"> Clear your history </a>
+  </section>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
