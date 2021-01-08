@@ -21,6 +21,8 @@ https://helloworld-html.github.io/Prime-Factorization-Calculator/
   **`c` &#247; `d`** </br>
   
   **`Calculation (3):`** </br>
-  **`e` &#247; `f`** ... </br> </br>
+  **`e` &#247; `f`** ... </br> 
+  
+  **You can also access all the numbers you previously prime factorized by clicking on *Browse your history* (based on <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage"> local storage</a>)** </br>
 
 ***Please report any bugs or errors, thanks for your contribution!***
