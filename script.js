@@ -35,17 +35,21 @@ function ValidateInput() {
   info.style.display = "inline";
   link1.style.display = "inline";
   console.log("%cPrime factor decomposition for " + input.value + ":", "font-size:15px;color:#4dc3ff");
-  console.time("The program went on for");
+
+  const begin = performance.now();
   Calculation();
+  const end = performance.now();
+  document.querySelector("i").innerHTML = "The results were found in " + Math.round((end - begin + Number.EPSILON) * 1000) / 1000 + " milliseconds!";
 }
 
 function Calculation(dividend = input.value, divisor = 2) {
   let result;
-  var text = "";
+  let text = "";
   let count_calculation = 0;
   let count_loop = -1;
+  console.time("The program went on for");
   while (dividend > 1) {
-    var exponent = 0;
+    let exponent = 0;
     while (dividend % divisor == 0) {
       result = dividend / divisor;
       count_calculation++;
@@ -74,16 +78,14 @@ function Calculation(dividend = input.value, divisor = 2) {
   }
   show_result.innerHTML = text;
   show_result.style.color = "#ff8f66";
-  localStorage.setItem("LOCAL STORAGE FILE CREATED ON: " + new Date(), `${input.value}`)
+  localStorage.setItem("LOCAL STORAGE FILE CREATED ON: " + new Date(), `${input.value}`);
 }
 
 function ShowStorage() {
   let values = [];
   let keys = Object.keys(localStorage);
   let i = keys.length;
-  while (i--) {
-    values.push(localStorage.getItem(keys[i]))
-  }
+  while (i--) { values.push(localStorage.getItem(keys[i])) }
   document.querySelector("h3").innerHTML = "The following numbers were previously prime factorized on your device: " + "</br>" + "</br>" + "<i style='color:#4dc3ff;user-select:text'>" + values.join(",  ") + "</i>";
   if (keys.length == 0) { link1.style.display = "none" }
 }

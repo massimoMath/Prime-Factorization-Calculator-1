@@ -72,7 +72,19 @@ h2 {
  margin-top: 35px;
 }
 
-#result {text-align: center; font-size: 25px; padding-bottom: 40px}
+#result {
+ text-align: center;
+ font-size: 25px;
+ padding-bottom: 20px;
+}
+
+#time {
+ text-align: center;
+ display: block;
+ font-size: 17px;
+ color: #ff4dff;
+ padding-bottom: 50px;
+}
 
 #info, #link1, #link2, #clear {
  position: fixed;
@@ -123,6 +135,7 @@ section > h3 {
   padding-right: 20px;
  }
  #result { font-size: 18px }
+ #time { font-size: 14px }
  section > h3 {
   font-size: 15px;
   padding: 40px 30px 40px 30px;
@@ -147,6 +160,7 @@ section > h3 {
  }
  h2 { margin-top: 60px; font-size: 35px }
  #result { font-size: 30px }
+ #time { font-size: 23px }
  section > h3 {
   font-size: 25px;
   padding: 50px 100px 50px 100px;
