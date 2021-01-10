@@ -1,4 +1,4 @@
-//JavaScript code
+"use strict"
 console.info("%cState: operative", "font-weight:bold;font-size:15px;color:#00ff00");
 
 let main = document.querySelector("main");
@@ -36,10 +36,10 @@ function ValidateInput() {
   link1.style.display = "inline";
   console.log("%cPrime factor decomposition for " + input.value + ":", "font-size:15px;color:#4dc3ff");
 
-  const begin = performance.now();
+  const t0 = performance.now();
   Calculation();
-  const end = performance.now();
-  document.querySelector("i").innerHTML = "The results were found in " + Math.round((end - begin + Number.EPSILON) * 1000) / 1000 + " milliseconds!";
+  const t1 = performance.now();
+  document.querySelector("i").innerHTML = "The results were found in " + Math.round((t1 - t0 + Number.EPSILON) * 1000) / 1000 + " milliseconds!";
 }
 
 function Calculation(dividend = input.value, divisor = 2) {
