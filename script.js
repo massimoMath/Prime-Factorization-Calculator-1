@@ -1,6 +1,17 @@
 "use strict"
 console.info("%cState: operative", "font-weight:bold;font-size:15px;color:#00ff00");
 
+function Compatibilty() {
+  var test1 = performance.now();
+  test(3, 3, 4, 5);
+  var test2 = performance.now();
+  if (Number.isInteger(test2 - test1)) {
+    document.querySelector("b").style.display = "none"
+  }
+}
+
+let test = function(a, b, c, d) { return a * b / c * d }
+
 let main = document.querySelector("main");
 let input = document.querySelector("input");
 let response = document.querySelector("h2");
@@ -66,7 +77,9 @@ function ValidateInput() {
   Calculation();
   const t1 = performance.now();
   const result_timer = Math.round((t1 - t0 + Number.EPSILON) * 1000) / 1000;
-  if (Number.isInteger(t1 - t0)) { document.querySelector("i").delete() }
+  if (Number.isInteger(t1 - t0)) {
+    document.querySelector("i").delete()
+  }
   document.querySelector("i").innerHTML = "The results were found in " + result_timer + " milliseconds!";
 }
 
@@ -112,8 +125,14 @@ function ShowStorage() {
   let values = [];
   let keys = Object.keys(localStorage);
   let i = keys.length;
-  while (i--) { values.push(localStorage.getItem(keys[i])) }
-  values.sort(function(a, b) { return b - a });
+  while (i--) {
+    values.push(localStorage.getItem(keys[i]))
+  }
+  values.sort(function(a, b) {
+    return b - a
+  });
   document.querySelector("h3").innerHTML = "The following numbers were previously prime factorized on your device: " + "</br>" + "</br>" + "<i style='color:#4dc3ff;user-select:text'>" + values.join(",  ") + "</i>";
-  if (keys.length == 0) { link1.style.display = "none" }
+  if (keys.length == 0) {
+    link1.style.display = "none"
+  }
 }
