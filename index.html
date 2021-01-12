@@ -11,14 +11,43 @@
 
 <body>
   <main>
-    <h1> Prime Factor Decomposition </h1>
-    <input type="number" min="0" placeholder="positive integer">
-    <button onclick="ValidateInput()"> Submit </button>
-    <h2></h2>
-    <p id="result"></p>
-    <i id="time"></i>
-    <a id="info"> Open console for further details <i> (f12) </i> </a>
-    <a id="link1" onclick="main.style.display='none';section.style.display='block';link2.style.display='inline';document.getElementById('clear').style.display='inline';ShowStorage()"> Browse your history &#8594; </a>
+    <div>
+      <h1> Prime Factor Decomposition </h1>
+      <input type="number" min="0" placeholder="positive integer">
+      <button onclick="ValidateInput()"> Submit </button>
+      <h2></h2>
+      <p id="result"></p>
+      <i id="time"></i>
+      <a id="info"> Open console for further details <i> (f12) </i> </a>
+      <a id="link1"> Browse your history &#8594; </a>
+      <b id="benchmark"> New feature: Benchmark your device ! </b>
+    </div>
+
+    <span>
+     <h2> </h2>
+     <button onclick="location.reload()"> Ok </button>
+    </span>
+
+    <aside>
+      <a>&times;</a>
+      <h1 style="color:coral"> Evaluate your device's performance </h1>
+      <p> This tool allows you to estimate your device's execution speed while computing prime factorization of <code style="color:#4dc3ff">1x10<sup>40</sup></code>. More precisely, the speed which your device will take to repeat the while loops (shown below). A timer will record the amount of time the device will take to find results. Please note that this profiler will only give you an approximation, as a lot of diverse factors may unfavourably impact your score.</br></br>
+      <i style="color:magenta"> Here is the JavaScript function (simplified) that will be executed to prime factorize number:</i></p>
+      <pre>
+      function Calculation() {
+        var dividend = 1e+40;
+        var divisor = 2;
+        while (dividend > 1) {
+          while (dividend % divisor == 0) {
+            var result = dividend / divisor;
+            dividend = result;
+          }
+        }
+        divisor += 1;
+      }
+      </pre>
+      <button style="margin-bottom:50px"> Start Test </button>
+    </aside>
   </main>
 
   <section style="display:none">
