@@ -1,61 +1,33 @@
 "use strict"
 console.info("%cState: operative", "font-weight:bold;font-size:15px;color:#00ff00");
 
-function Compatibilty() {
-  var test1 = performance.now();
-  test(3, 3, 4, 5);
-  var test2 = performance.now();
-  if (Number.isInteger(test2 - test1)) {
-    document.querySelector("b").style.display = "none"
-  }
-}
-
-let test = function(a, b, c, d) { return a * b / c * d }
-
 let main = document.querySelector("main");
 let input = document.querySelector("input");
 let response = document.querySelector("h2");
 let button = document.querySelector("button");
 let show_result = document.getElementById("result");
 let section = document.querySelector("section");
-let info = document.getElementById("info");
 let link1 = document.getElementById("link1");
 let link2 = document.getElementById("link2");
 
 input.addEventListener("keydown", function(event) {
   if (event.keyCode === 13) { event.preventDefault(); button.click() }
 })
-document.getElementById("link1").addEventListener("click", function() {
+
+link1.addEventListener("click", function() {
   main.style.display = "none";
   section.style.display = "block";
   link2.style.display = "inline";
   document.getElementById('clear').style.display = "inline";
   ShowStorage();
 })
-document.querySelector("b").addEventListener("click", function() {
-  document.querySelector("aside").style.width = "100%";
-  document.querySelector("div").style.display = "none";
-})
-document.querySelector("aside > button").addEventListener("click", function() {
-  input.value = 1e+40;
-  ValidateInput();
-  document.querySelector("span > h2").innerHTML = document.querySelector("i").innerHTML;
-  document.querySelector("span").style.display = "block";
-  document.querySelector("aside").style.filter = "blur(8px)";
-  document.querySelector("aside").style.pointerEvents = "none";
-})
-document.querySelector("aside > a").addEventListener("click", function() {
-  document.querySelector("aside").style.width = "0";
-  document.querySelector("div").style.display = "block";
-})
 
 function ValidateInput() {
   show_result.innerHTML = "";
-  document.querySelector("b").style.display = "none";
   console.clear();
   console.info("%cState: operative", "font-weight:bold;font-size:15px;color:#00ff00");
   document.querySelector("i").style.display = "none"
-  info.style.display = "none";
+  document.getElementById("info").style.display = "none";
   link1.style.display = "none";
   try {
     if (input.value < 0) throw "Please enter a positive number";
@@ -68,7 +40,7 @@ function ValidateInput() {
     console.log("%cInput response: " + '"' + error + '"', "font-size:15px;color:red");
     return false
   }
-  info.style.display = "inline";
+  document.getElementById("info").style.display = "inline";
   link1.style.display = "inline";
   document.querySelector("i").style.display = "block"
   console.log("%cPrime factor decomposition for " + input.value + ":", "font-size:15px;color:#4dc3ff");
@@ -76,11 +48,7 @@ function ValidateInput() {
   const t0 = performance.now();
   Calculation();
   const t1 = performance.now();
-  const result_timer = Math.round((t1 - t0 + Number.EPSILON) * 1000) / 1000;
-  if (Number.isInteger(t1 - t0)) {
-    document.querySelector("i").delete()
-  }
-  document.querySelector("i").innerHTML = "The results were found in " + result_timer + " milliseconds!";
+  document.querySelector("i").innerHTML = "The results were found in " + Math.round((t1 - t0 + Number.EPSILON) * 1000) / 1000 + " milliseconds!";
 }
 
 function Calculation(dividend = input.value, divisor = 2) {
